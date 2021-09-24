@@ -68,12 +68,8 @@
     <h1 th:text="${something}"/><br>
     <a type="button" class="btn btn-primary" href="/employee">Add Employee</a>
 <!--    <a href="/employee/refresh">Refresh</a>-->
-
 <!--    <p th:text="${testName}">Text from refresh</p>-->
-
-
 <!--    <button class="btn btn-large" th:onclick="|replaceTextValue()|">Modifica text</button>-->
-
 <!--    <p id="textButton">Marian</p>-->
     <div></div><br>
     <table class="table table-dark table-striped">
@@ -81,6 +77,7 @@
         <tr>
             <th scope="col">Id</th>
             <th scope="col">Name</th>
+            <th scope="col">Type</th>
             <th scope="col">Actions</th>
         </tr>
         </thead>
@@ -88,6 +85,7 @@
         <tr th:each="person: ${people}">
             <td th:text="${person.Id}"/>
             <td th:text="${person.lastName + ' ' + person.firstName}"/>
+            <td th:text="${person.employeeType}"/>
 <!--                   th:href="@{/google/{id}(id=${person.firstName})}">Detalii</td>-->
             <td><a type="button" class="btn btn-primary" th:href="@{/employee/{id}(id=${person.Id})}">Edit</a>
                 <a type="button" class="btn btn-primary" th:href="@{/deleteEmployee/{id}(id=${person.Id})}">Delete</a></td>

@@ -1,6 +1,7 @@
 package com.erivid.Employees_Organiser.controllers;
 
 import com.erivid.Employees_Organiser.models.Employee;
+import com.erivid.Employees_Organiser.models.EmployeeType;
 import com.erivid.Employees_Organiser.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -33,7 +35,13 @@ public class EmployeeController {
 
     @GetMapping("/employee")
     public String addEmployee(Model model) {
-        model.addAttribute("employee", new Employee());
+        model.addAttribute("employee4", new Employee());
+        List<EmployeeType> allTypes =  new ArrayList<>();
+        allTypes.add(new EmployeeType(1, "warehouse"));
+        allTypes.add(new EmployeeType(2, "office"));
+        allTypes.add(new EmployeeType(3, "drivers"));
+
+        model.addAttribute("types", allTypes);
         return "addEmployee.html";
     }
 
