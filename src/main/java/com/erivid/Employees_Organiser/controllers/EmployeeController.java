@@ -35,7 +35,7 @@ public class EmployeeController {
 
     @GetMapping("/employee")
     public String addEmployee(Model model) {
-        model.addAttribute("employee4", new Employee());
+        model.addAttribute("employee", new Employee());
         List<EmployeeType> allTypes =  new ArrayList<>();
         allTypes.add(new EmployeeType(1, "warehouse"));
         allTypes.add(new EmployeeType(2, "office"));

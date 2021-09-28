@@ -2,7 +2,7 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-
+    <div th:replace="navbarFragment :: myNavbar"></div>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}"
@@ -14,7 +14,7 @@
 <div class="container">
     <h1>Add a new Employee</h1><br>
     <div display="block" text-align="center">
-        <form action="/" th:action="@{/employee}" th:object="${employee4}" method="post" display="inline-block"
+        <form action="/" th:action="@{/employee}" th:object="${employee}" method="post" display="inline-block"
               margins="auto" text-align="left">
             <input type="hidden" th:field="*{id}">
             <div class="mb-3">
@@ -28,7 +28,7 @@
             <div class="mb-3">
                 <label class="form-label">Choose employee type</label>
                 <select th:field="*{employeeType}" class="form-select" aria-label="Default select example" >
-                    <option th:each="type: ${types}" th:value="${type.Id}" th:text="${type.typeName}">
+                    <option th:each="type: ${types}" th:value="${type.typeName}" th:text="${type.typeName}">
                     </option>
                 </select>
             </div>
